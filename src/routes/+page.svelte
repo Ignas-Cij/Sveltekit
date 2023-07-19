@@ -2,101 +2,101 @@
   import Button from '$lib/components/Button.svelte';
   import Card from '$lib/components/Card.svelte';
 
-  import {onMount} from 'svelte';
-  import {writable} from 'svelte/store';
-  import StrapiService from '../services/strapi';
-
-  let homeData = writable({});
-
-  async function fetchHomeData() {
-    try {
-      homeData.set((await StrapiService.get('home')).data.attributes);
-    } catch (error) {
-      console.error('Error while fetching home data:', error);
-    }
-  }
-
-  onMount(fetchHomeData);
-
-  let topBlockImageMain = ''; // Initialize the variable with an empty string
-  let topBlockImageSecond = ''; // Initialize the variable with an empty string
-
-  // Subscribe to the homeData store to get the image URL when it updates
-  homeData.subscribe((data) => {
-    // Check if the 'Image' property exists in the data object
-    if (data.ImageMain_TopBlock && data.ImageMain_TopBlock.data && data.ImageMain_TopBlock.data.attributes && data.ImageMain_TopBlock.data.attributes.url) {
-      topBlockImageMain = `http://localhost:1338${data.ImageMain_TopBlock.data.attributes.url}`;
-    }
-    if (data.ImageSecond_TopBlock && data.ImageSecond_TopBlock.data && data.ImageSecond_TopBlock.data.attributes && data.ImageSecond_TopBlock.data.attributes.url) {
-      topBlockImageSecond = `http://localhost:1338${data.ImageMain_TopBlock.data.attributes.url}`;
-    }
-  });
+  // import {onMount} from 'svelte';
+  // import {writable} from 'svelte/store';
+  // import StrapiService from '../services/strapi';
+  //
+  // let homeData = writable({});
+  //
+  // async function fetchHomeData() {
+  //   try {
+  //     homeData.set((await StrapiService.get('home')).data.attributes);
+  //   } catch (error) {
+  //     console.error('Error while fetching home data:', error);
+  //   }
+  // }
+  //
+  // onMount(fetchHomeData);
+  //
+  // let topBlockImageMain = ''; // Initialize the variable with an empty string
+  // let topBlockImageSecond = ''; // Initialize the variable with an empty string
+  //
+  // // Subscribe to the homeData store to get the image URL when it updates
+  // homeData.subscribe((data) => {
+  //   // Check if the 'Image' property exists in the data object
+  //   if (data.ImageMain_TopBlock && data.ImageMain_TopBlock.data && data.ImageMain_TopBlock.data.attributes && data.ImageMain_TopBlock.data.attributes.url) {
+  //     topBlockImageMain = `http://localhost:1338${data.ImageMain_TopBlock.data.attributes.url}`;
+  //   }
+  //   if (data.ImageSecond_TopBlock && data.ImageSecond_TopBlock.data && data.ImageSecond_TopBlock.data.attributes && data.ImageSecond_TopBlock.data.attributes.url) {
+  //     topBlockImageSecond = `http://localhost:1338${data.ImageSecond_TopBlock.data.attributes.url}`;
+  //   }
+  // });
 </script>
 
 <main class="home-page">
-  <section class="top-block">
-    <div class="container mx-auto">
-      <div class="flex items-center py-48 relative">
-        <div class="lines absolute w-full h-full flex justify-between">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="w-5/12 px-3 relative">
-          <div class="title">
-            <h1>{$homeData.Title_TopBlock}</h1>
-          </div>
-          <div class="text">
-            {@html $homeData.Description_TopBlock}
-          </div>
-        </div>
-        <div class="w-1/12 px-3"></div>
-        <div class="w-6/12 px-3 relative">
-          <div class="image-container">
-            <img class="rounded-md withbg relative" src="{topBlockImageMain}" alt="">
-          </div>
-          <img class="rounded-md absolute z-1 smaller" src="{topBlockImageSecond}" alt="">
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="since-block">
-    <div class="container mx-auto">
-      <div class="w-12/12 py-32">
-        <span class="inline-block">{$homeData.SubHeading_SecondBlock}</span>
-        <div class="text my-5">
-          {@html $homeData.Text_SecondBlock}
-        </div>
-        <Button href="https://example.com">
-          About us
-        </Button>
-        <div class="grid grid-cols-3 gap-20 mt-20">
-          <div class="w-full">
-            <img class="sign mb-5" src="/images/Frame.svg" alt="">
-            <h4 class="mb-5">Industry Expertise</h4>
-            <p>Deep industry expertise in metal processing and real estate, allowing identification of
-              high-potential companies and maximizing their potential.</p>
-          </div>
-          <div class="w-full">
-            <img class="sign mb-5" src="/images/Frame1.svg" alt="">
-            <h4 class="mb-5">Strategic Partnership</h4>
-            <p>Collaborative approach to investing, working closely with portfolio company executives to
-              provide strategic guidance and operational support.</p>
+<!--  <section class="top-block">-->
+<!--    <div class="container mx-auto">-->
+<!--      <div class="flex items-center py-48 relative">-->
+<!--        <div class="lines absolute w-full h-full flex justify-between">-->
+<!--          <span></span>-->
+<!--          <span></span>-->
+<!--          <span></span>-->
+<!--          <span></span>-->
+<!--          <span></span>-->
+<!--        </div>-->
+<!--        <div class="w-5/12 px-3 relative">-->
+<!--          <div class="title">-->
+<!--            <h1>{$homeData.Title_TopBlock}</h1>-->
+<!--          </div>-->
+<!--          <div class="text">-->
+<!--            {@html $homeData.Description_TopBlock}-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div class="w-1/12 px-3"></div>-->
+<!--        <div class="w-6/12 px-3 relative">-->
+<!--          <div class="image-container">-->
+<!--            <img class="rounded-md withbg relative" src="{topBlockImageMain}" alt="">-->
+<!--          </div>-->
+<!--          <img class="rounded-md absolute z-1 smaller" src="{topBlockImageSecond}" alt="">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
+<!--  <section class="since-block">-->
+<!--    <div class="container mx-auto">-->
+<!--      <div class="w-12/12 py-32">-->
+<!--        <span class="inline-block">{$homeData.SubHeading_SecondBlock}</span>-->
+<!--        <div class="text my-5">-->
+<!--          {@html $homeData.Text_SecondBlock}-->
+<!--        </div>-->
+<!--        <Button href="https://example.com">-->
+<!--          About us-->
+<!--        </Button>-->
+<!--        <div class="grid grid-cols-3 gap-20 mt-20">-->
+<!--          <div class="w-full">-->
+<!--            <img class="sign mb-5" src="/images/Frame.svg" alt="">-->
+<!--            <h4 class="mb-5">Industry Expertise</h4>-->
+<!--            <p>Deep industry expertise in metal processing and real estate, allowing identification of-->
+<!--              high-potential companies and maximizing their potential.</p>-->
+<!--          </div>-->
+<!--          <div class="w-full">-->
+<!--            <img class="sign mb-5" src="/images/Frame1.svg" alt="">-->
+<!--            <h4 class="mb-5">Strategic Partnership</h4>-->
+<!--            <p>Collaborative approach to investing, working closely with portfolio company executives to-->
+<!--              provide strategic guidance and operational support.</p>-->
 
-          </div>
-          <div class="w-full">
-            <img class="sign mb-5" src="/images/Frame2.svg" alt="">
-            <h4 class="mb-5">Exceptional Returns</h4>
-            <p>Dedicated to delivering exceptional returns with integrity, transparency, and a long-term
-              investment approach.</p>
+<!--          </div>-->
+<!--          <div class="w-full">-->
+<!--            <img class="sign mb-5" src="/images/Frame2.svg" alt="">-->
+<!--            <h4 class="mb-5">Exceptional Returns</h4>-->
+<!--            <p>Dedicated to delivering exceptional returns with integrity, transparency, and a long-term-->
+<!--              investment approach.</p>-->
 
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
   <section class="cards-block">
     <div class="container mx-auto">
       <div class="w-12/12 py-32">
