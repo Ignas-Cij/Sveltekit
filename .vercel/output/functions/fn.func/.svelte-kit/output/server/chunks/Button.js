@@ -1,4 +1,4 @@
-import { c as create_ssr_component, d as add_attribute } from "./index2.js";
+import { c as create_ssr_component, h as add_attribute } from "./index.js";
 const Button_svelte_svelte_type_style_lang = "";
 const css = {
   code: ".button.svelte-1u1by5h{display:inline-block;padding:1rem 1.875rem;background:var(--darkblue-color);border-radius:0.625rem;text-decoration:none;color:var(--white-color);margin:10px 0}",

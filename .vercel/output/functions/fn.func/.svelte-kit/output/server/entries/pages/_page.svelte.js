@@ -1,40 +1,26 @@
-import { c as create_ssr_component, b as subscribe, e as escape, d as add_attribute, v as validate_component } from "../../chunks/index2.js";
+import { c as create_ssr_component, v as validate_component } from "../../chunks/index.js";
 import { B as Button } from "../../chunks/Button.js";
 import { C as Card } from "../../chunks/Card.js";
-import { w as writable } from "../../chunks/index.js";
 const _page_svelte_svelte_type_style_lang = "";
 const css = {
   code: '.top-block.svelte-1f5kpr2.svelte-1f5kpr2{background:var(--blue-color)}.top-block.svelte-1f5kpr2 .smaller.svelte-1f5kpr2{max-width:268px;left:0;bottom:0;transform:translateX(-18.3%) translateY(36.6%)}.top-block.svelte-1f5kpr2 .image-container.svelte-1f5kpr2:before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:var(--darkblue-color);transform:translateX(9.21%) translateY(9.5%);border-radius:0.375rem}.since-block.svelte-1f5kpr2 .sign.svelte-1f5kpr2{max-width:48px}',
   map: null
 };
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let $homeData, $$unsubscribe_homeData;
-  let homeData = writable({});
-  $$unsubscribe_homeData = subscribe(homeData, (value) => $homeData = value);
-  let topBlockImageMain = "";
-  let topBlockImageSecond = "";
-  homeData.subscribe((data) => {
-    if (data.ImageMain_TopBlock && data.ImageMain_TopBlock.data && data.ImageMain_TopBlock.data.attributes && data.ImageMain_TopBlock.data.attributes.url) {
-      topBlockImageMain = `http://localhost:1338${data.ImageMain_TopBlock.data.attributes.url}`;
-    }
-    if (data.ImageSecond_TopBlock && data.ImageSecond_TopBlock.data && data.ImageSecond_TopBlock.data.attributes && data.ImageSecond_TopBlock.data.attributes.url) {
-      topBlockImageSecond = `http://localhost:1338${data.ImageMain_TopBlock.data.attributes.url}`;
-    }
-  });
   $$result.css.add(css);
-  $$unsubscribe_homeData();
   return `<main class="home-page"><section class="top-block svelte-1f5kpr2"><div class="container mx-auto"><div class="flex items-center py-48 relative"><div class="lines absolute w-full h-full flex justify-between"><span></span>
           <span></span>
           <span></span>
           <span></span>
           <span></span></div>
-        <div class="w-5/12 px-3 relative"><div class="title"><h1>${escape($homeData.Title_TopBlock)}</h1></div>
-          <div class="text"><!-- HTML_TAG_START -->${$homeData.Description_TopBlock}<!-- HTML_TAG_END --></div></div>
+        <div class="w-5/12 px-3 relative"><div class="title"><h1>test</h1></div>
+          <div class="text">test
+          </div></div>
         <div class="w-1/12 px-3"></div>
-        <div class="w-6/12 px-3 relative"><div class="image-container svelte-1f5kpr2"><img class="rounded-md withbg relative"${add_attribute("src", topBlockImageMain, 0)} alt=""></div>
-          <img class="rounded-md absolute z-1 smaller svelte-1f5kpr2"${add_attribute("src", topBlockImageSecond, 0)} alt=""></div></div></div></section>
-  <section class="since-block svelte-1f5kpr2"><div class="container mx-auto"><div class="w-12/12 py-32"><span class="inline-block">${escape($homeData.SubHeading_SecondBlock)}</span>
-        <div class="text my-5"><!-- HTML_TAG_START -->${$homeData.Text_SecondBlock}<!-- HTML_TAG_END --></div>
+        <div class="w-6/12 px-3 relative"><div class="image-container svelte-1f5kpr2"><img class="rounded-md withbg relative" src="" alt=""></div>
+          <img class="rounded-md absolute z-1 smaller svelte-1f5kpr2" src="" alt=""></div></div></div></section>
+  <section class="since-block svelte-1f5kpr2"><div class="container mx-auto"><div class="w-12/12 py-32"><span class="inline-block"></span>
+        <div class="text my-5"></div>
         ${validate_component(Button, "Button").$$render($$result, { href: "https://example.com" }, {}, {
     default: () => {
       return `About us

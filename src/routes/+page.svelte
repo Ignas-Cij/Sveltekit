@@ -2,35 +2,35 @@
   import Button from '$lib/components/Button.svelte';
   import Card from '$lib/components/Card.svelte';
 
-  import {onMount} from 'svelte';
-  import {writable} from 'svelte/store';
-  import StrapiService from '../services/strapi';
-
-  let homeData = writable({});
-
-  async function fetchHomeData() {
-    try {
-      homeData.set((await StrapiService.get('home')).data.attributes);
-    } catch (error) {
-      console.error('Error while fetching home data:', error);
-    }
-  }
-
-  onMount(fetchHomeData);
-
-  let topBlockImageMain = ''; // Initialize the variable with an empty string
-  let topBlockImageSecond = ''; // Initialize the variable with an empty string
-
-  // Subscribe to the homeData store to get the image URL when it updates
-  homeData.subscribe((data) => {
-    // Check if the 'Image' property exists in the data object
-    if (data.ImageMain_TopBlock && data.ImageMain_TopBlock.data && data.ImageMain_TopBlock.data.attributes && data.ImageMain_TopBlock.data.attributes.url) {
-      topBlockImageMain = `http://localhost:1338${data.ImageMain_TopBlock.data.attributes.url}`;
-    }
-    if (data.ImageSecond_TopBlock && data.ImageSecond_TopBlock.data && data.ImageSecond_TopBlock.data.attributes && data.ImageSecond_TopBlock.data.attributes.url) {
-      topBlockImageSecond = `http://localhost:1338${data.ImageMain_TopBlock.data.attributes.url}`;
-    }
-  });
+  // import {onMount} from 'svelte';
+  // import {writable} from 'svelte/store';
+  // import StrapiService from '../services/strapi';
+  //
+  // let homeData = writable({});
+  //
+  // async function fetchHomeData() {
+  //   try {
+  //     homeData.set((await StrapiService.get('home')).data.attributes);
+  //   } catch (error) {
+  //     console.error('Error while fetching home data:', error);
+  //   }
+  // }
+  //
+  // onMount(fetchHomeData);
+  //
+  // let topBlockImageMain = ''; // Initialize the variable with an empty string
+  // let topBlockImageSecond = ''; // Initialize the variable with an empty string
+  //
+  // // Subscribe to the homeData store to get the image URL when it updates
+  // homeData.subscribe((data) => {
+  //   // Check if the 'Image' property exists in the data object
+  //   if (data.ImageMain_TopBlock && data.ImageMain_TopBlock.data && data.ImageMain_TopBlock.data.attributes && data.ImageMain_TopBlock.data.attributes.url) {
+  //     topBlockImageMain = `http://localhost:1338${data.ImageMain_TopBlock.data.attributes.url}`;
+  //   }
+  //   if (data.ImageSecond_TopBlock && data.ImageSecond_TopBlock.data && data.ImageSecond_TopBlock.data.attributes && data.ImageSecond_TopBlock.data.attributes.url) {
+  //     topBlockImageSecond = `http://localhost:1338${data.ImageMain_TopBlock.data.attributes.url}`;
+  //   }
+  // });
 </script>
 
 <main class="home-page">
@@ -46,18 +46,18 @@
         </div>
         <div class="w-5/12 px-3 relative">
           <div class="title">
-            <h1>{$homeData.Title_TopBlock}</h1>
+            <h1>test</h1>
           </div>
           <div class="text">
-            {@html $homeData.Description_TopBlock}
+            test
           </div>
         </div>
         <div class="w-1/12 px-3"></div>
         <div class="w-6/12 px-3 relative">
           <div class="image-container">
-            <img class="rounded-md withbg relative" src="{topBlockImageMain}" alt="">
+            <img class="rounded-md withbg relative" src="" alt="">
           </div>
-          <img class="rounded-md absolute z-1 smaller" src="{topBlockImageSecond}" alt="">
+          <img class="rounded-md absolute z-1 smaller" src="" alt="">
         </div>
       </div>
     </div>
@@ -65,9 +65,9 @@
   <section class="since-block">
     <div class="container mx-auto">
       <div class="w-12/12 py-32">
-        <span class="inline-block">{$homeData.SubHeading_SecondBlock}</span>
+        <span class="inline-block"></span>
         <div class="text my-5">
-          {@html $homeData.Text_SecondBlock}
+
         </div>
         <Button href="https://example.com">
           About us

@@ -1,4 +1,4 @@
-import { c as create_ssr_component, h as each, e as escape, v as validate_component } from "../../../chunks/index2.js";
+import { c as create_ssr_component, f as each, e as escape, v as validate_component } from "../../../chunks/index.js";
 import { C as Card } from "../../../chunks/Card.js";
 const Carousel_svelte_svelte_type_style_lang = "";
 const css$1 = {

@@ -1,4 +1,4 @@
-import { c as create_ssr_component, e as escape, v as validate_component, d as add_attribute } from "./index2.js";
+import { c as create_ssr_component, e as escape, v as validate_component, h as add_attribute } from "./index.js";
 import { B as Button } from "./Button.js";
 const Card_svelte_svelte_type_style_lang = "";
 const css = {

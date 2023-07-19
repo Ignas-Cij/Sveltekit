@@ -1,4 +1,4 @@
-import { c as create_ssr_component, v as validate_component, a as createEventDispatcher } from "../../chunks/index2.js";
+import { c as create_ssr_component, v as validate_component, b as createEventDispatcher } from "../../chunks/index.js";
 import { B as Button } from "../../chunks/Button.js";
 const app = "";
 const style = "";
